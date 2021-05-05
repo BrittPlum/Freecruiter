@@ -1,0 +1,94 @@
+{{> navbar}}
+
+<main>
+  <div class="container mt-5">
+    <div class="row mt-5">
+      <div class="d-flex flex-row freelancerprofileheader mt-5 pt-5">
+        <h3 class="">Employer Jobs Page</h3>
+        <a href="/profile/employer/create" class="btn btn-primary btn-sm h-10 ms-auto mb-3">Create a new job listing</a>
+      </div>
+      <div class="col">
+        <section class="section-1">
+          <div class="container pt-3 ">
+
+
+            <div>
+              {{#if frontEndJobs}}
+              <a href="#frontEnd"><button type="button" class="btn btn-dark btn-sm">Front-End</button></a>
+              {{/if}}
+              {{#if backEndJobs}}
+              <a href="#backEnd"><button type="button" class="btn btn-dark btn-sm">Back-End</button></a>
+              {{/if}}
+              {{#if fullStackJobs}}
+              <a href="#fullStack"><button type="button" class="btn btn-dark btn-sm">Full-Stack</button></a>
+              {{/if}}
+            </div>
+
+            <br>
+
+            <div class="job-list">
+              {{#if frontEndJobs}}
+              <h5 id="frontEnd">Front-end job listing</h5>
+              {{/if}}
+              {{#each frontEndJobs as |job|}}
+              <div class="card mx-5 my-3">
+                <div class="card-body">
+                  <p>{{job.name}}</p>
+                  <p>{{format_date job.date_created}}</p>
+                   <a href="/jobs/FrontEnd/{{job.id}}" class="btn btn-primary btn-sm">View</a>
+                  <a href="/construction"class="btn btn-primary btn-sm">Update</a>
+                  <button class="delete-btn btn-primary btn-sm" id="delete" data-id="{{job.id}}"
+                    data-category="{{job.category}}">Delete</button>
+                </div>
+              </div>
+              {{/each}}
+
+              {{#if backEndJobs}}
+              <h5 id="backEnd">Back-End job listings</h5>
+              {{/if}}
+              {{#each backEndJobs as |job|}}
+              <div class="card mx-5 my-3">
+                <div class="card-body">
+                  <p>{{job.name}}</p>
+                  <p>{{format_date job.date_created}}</p>
+                  <a href="/jobs/BackEnd/{{job.id}}" class="btn btn-primary btn-sm">View</a>
+                  <a href="/construction"class="btn btn-primary btn-sm">Update</a>
+                  <button class="delete-btn btn-primary btn-sm" data-id="{{job.id}}"
+                    data-category="{{job.category}}">Delete</button>
+                </div>
+              </div>
+              {{/each}}
+
+              {{#if fullStackJobs}}
+              <h5 id="fullStack">Full-Stack job listings</h5>
+              {{/if}}
+              {{#each fullStackJobs as |job|}}
+              <div class="card mx-5 my-3">
+                <div class="card-body">
+                  <p>{{job.name}}</p>
+                  <p>{{format_date job.date_created}}</p>
+                  <a href="/jobs/FullStack/{{job.id}}" class="btn btn-primary btn-sm">View</a>
+                  <a href="/construction"class="btn btn-primary btn-sm">Update</a>
+                  <button class="delete-btn btn-primary btn-sm" data-id="{{job.id}}"
+                    data-category="{{job.category}}">Delete</button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+
+
+
+
+          </div>
+
+
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script src="/js/delete.js">
+</script>

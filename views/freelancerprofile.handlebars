@@ -1,0 +1,70 @@
+{{!-- Freelancer Profile Page --}}
+
+{{> navbar}}
+
+<main>
+
+  <div class="container freelancerprofile mt-5 mb-3">
+    <div class="row mt-5 pt-2">
+      <div class="d-flex flex-row freelancerprofileheader pt-5">
+        <h4 class="">Freelancer Dashboard</h4>
+        <a href="/construction" class="btn btn-primary btn-sm h-10 ms-auto mb-3">View My Jobs</a>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div>
+          <img src="../assets/instagram-3814081_1280.png" class="rounded-circle m-3" alt="Profile Picture" width="220px"
+            height="220px">
+        </div>
+        <div class="shadow p-3 mb-3 bg-body rounded">
+          <div class="list-group">
+            <a href="#freelancername" class="list-group-item list-group-item-action" aria-current="true">
+              Name
+            </a>
+            <a href="#freelancerbio" class="list-group-item list-group-item-action">Bio</a>
+            <a href="#freelancerlocation" class="list-group-item list-group-item-action">Location</a>
+            <a href="#jobcategories" class="list-group-item list-group-item-action">Job Categories</a>
+            <a href="#freelancerwebsite" class="list-group-item list-group-item-action">Website</a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-12">
+        <div class="card mb-3 shadow p-2 mb-3 bg-body rounded" id="freelancername">
+          <div class="card-body d-flex flex-column">
+            <h4 class="card-title">Name</h4>
+            <p>{{name}}</p>
+          </div>
+        </div>
+        <div class="card mb-3 shadow p-2 mb-3 bg-body rounded" id="freelancerbio">
+          <div class="card-body d-flex flex-column">
+            <h4 class="card-title">Bio</h4>
+            <p>{{bio}}</p>
+          </div>
+        </div>
+        <div class="card mb-3 shadow p-2 mb-3 bg-body rounded" id="freelancerlocation">
+          <div class="card-body d-flex flex-column">
+            <h4 class="card-title">Location</h4>
+            <p>{{location}}</p>
+          </div>
+        </div>
+        <div class="card mb-3 shadow p-2 mb-3 bg-body rounded" id="freelancerprofile">
+          <div class="card-body d-flex flex-column">
+            <h4 class="card-title" id="jobcategories">Job Categories</h4>
+            <p>{{format_categories categories}}</p>
+          </div>
+        </div>
+        <div class="card mb-3 shadow p-3 mb-3 bg-body rounded" id="freelancerwebsite">
+          <div class="card-body d-flex flex-column">
+            <h4 class="card-title">Website</h4>
+            <a href="{{website}}" target="blank">{{website}}</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</main>

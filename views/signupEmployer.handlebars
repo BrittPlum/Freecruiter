@@ -1,0 +1,48 @@
+{{> navbar}}
+
+<main>
+        <div class="container formContainer mt-5">
+            <div class="row mt-5">
+                
+              <div class="col mt-5">
+                  <h4 class="mt-5 mb-4">Employer Sign Up</h4>
+    
+                <form class="signup-form p-5"> 
+                    <div class="mb-3">
+                        <label for="name-signup" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name-signup" aria-describedby="emailHelp" data-role="employer">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mail-signup" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email-signup" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password-signup" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password-signup">
+                    </div>
+                    <div class="mb-3">
+                        <label for="location-signup" class="form-label">Where are you located</label>
+                        <input type="text" class="form-control" id="location-signup">
+                    </div>
+                    <div class="mb-3">
+                        <label for="website-signup" class="form-label">Website</label>
+                        <input type="text" class="form-control" id="website-signup">
+                        <div id="emailHelp" class="form-text">Your company website, or job application site.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bio-signup" class="form-label">Company Bio</label>
+                        <input type="input" class="form-control" id="bio-signup">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary create-account">Create Account</button>
+                </form>
+    
+              </div>
+    
+            </div>
+          </div>
+
+    </main>
+
+<script src="/js/signup.js"></script>

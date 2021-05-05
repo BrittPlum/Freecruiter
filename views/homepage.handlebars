@@ -1,0 +1,112 @@
+{{!-- Homepage template/ --}}
+
+{{> navbar}}
+
+<main>
+  <div class="container-fluid heroImage">
+    {{#if logged_in}}
+      <div class="row text-center introText">
+        <div class="col-4-lg col-12-md col-12-sm col-12-xs">
+          <h2>Begin your journey and connect</h2>
+        </div>
+      </div>
+    {{else}}
+    <div class="row text-center introText">
+      <div class="col-4-lg col-12-md col-12-sm col-12-xs">
+        <h2>Begin your journey and connect</h2>
+        <a class="btn btn-light px-5 viewMyWorkBtn m-2" href="/signup/freelancer">Sign Up as a Freelancer</a>
+        <a class="btn btn-light px-5 viewMyWorkBtn m-2" href="/signup/employer">Sign Up as an Employer</a>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  <section class="section-1">
+    <div class="container">
+      <div class="row pt-5">
+        {{#if hasJobs}}
+        <h4 id="latestJobs">Latest Jobs</h4>
+        {{else}}
+        <h2>No current job postings.</h2>
+        {{/if}}
+      </div>
+
+      <div>
+        {{#if frontEndJobs}}
+        <a href="#frontEnd"><button type="button" class="btn btn-dark btn-sm">Front-End</button></a>
+        {{/if}}
+        {{#if backEndJobs}}
+        <a href="#backEnd"><button type="button" class="btn btn-dark btn-sm">Back-End</button></a>
+        {{/if}}
+        {{#if fullStackJobs}}
+        <a href="#fullStack"><button type="button" class="btn btn-dark btn-sm">Full-Stack</button></a>
+        {{/if}}
+      </div>
+
+      <br>
+
+  </section>
+
+  <section class="container">
+
+    {{#if frontEndJobs}}
+    <section class="container">
+      <a href="/jobs/FrontEnd" class="anchorstyle"><h5 id="frontEnd">Front-End</h5></a>
+       {{#each frontEndJobs as |job|}}
+      <div class="card mx-5 my-2 shadow mb-3 bg-body rounded">
+        <div class="card-body">
+          <a href="/jobs/FrontEnd/{{job.id}}"><p id="{{job.name}}">{{job.name}}</p></a>
+          <div>Date Created: {{format_date job.date_created}}</div>
+          <div>Location: {{job.location}}</div>
+          {{!-- edit --}}
+          {{#if isEmployer}}
+          <div><a href="/update/{{job.id}}">Update</a> </div>
+           {{/if}}
+           {{!-- /edit --}}
+        </div>
+      </div>
+      {{/each}}
+       <div class="d-grid gap-2 col-6 mx-auto my-4">	
+              <a href="/jobs/FrontEnd" class="mx-auto"><button type="button" class="btn btn-outline-secondary btn-sm ms-auto">View all Front-End jobs</button></a>	
+      </div>
+    </section>
+    {{/if}}
+
+    {{#if backEndJobs}}
+    <section class="container">
+      <a href="/jobs/BackEnd" class="anchorstyle"><h5 id="backEnd">Back-End</h5></a>
+      {{#each backEndJobs as |job|}}
+      <div class="card mx-5 my-2 shadow mb-3 bg-body rounded">
+        <div class="card-body">
+          <a href="/jobs/BackEnd/{{job.id}}"><p id="{{job.name}}">{{job.name}}</p></a>
+          <div>Date Created: {{format_date job.date_created}}</div>
+          <div>Location: {{job.location}}</div>
+        </div>
+      </div>
+      {{/each}}
+      <div class="d-grid gap-2 col-6 mx-auto my-4">	
+              <a href="/jobs/BackEnd" class="mx-auto"><button type="button" class="btn btn-outline-secondary btn-sm ms-auto">View all Back-End jobs</button></a>	
+      </div>
+    </section>
+    {{/if}}
+
+    {{#if fullStackJobs}}
+    <section class="container">
+       <a href="/jobs/FullStack" class="anchorstyle"><h5 id="fullStack">Full-Stack</h5></a>
+      {{#each fullStackJobs as |job|}}
+       <div class="card mx-5 my-2 shadow mb-3 bg-body rounded">
+        <div class="card-body">
+          <a href="/jobs/FullStack/{{job.id}}"><p id="{{job.name}}">{{job.name}}</p></a>
+          <div>Date Created: {{format_date job.date_created}}</div>
+          <div>Location: {{job.location}}</div>
+        </div>
+      </div>
+      {{/each}}
+       <div class="d-grid gap-2 col-6 mx-auto my-4">	
+              <a href="/jobs/FullStack" class="mx-auto"><button type="button" class="btn btn-outline-secondary btn-sm ms-auto">View all Full-Stack jobs</button></a>	
+      </div>
+    </section>
+    {{/if}}
+
+  </section>
+</main>
